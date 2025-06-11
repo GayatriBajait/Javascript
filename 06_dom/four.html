@@ -10,7 +10,44 @@
        <li>Gayatri fav movies</li> 
     </ul>
 </body>
-<style>
+<script>
+    function addMovies(MoviName) {
+        const il = document.createElement('li');
+        il.innerHTML = `${MoviName}`;
+        document.querySelector('.movies').appendChild(il);
+    }
+    addMovies('Bahubali');
+    addMovies('RRR');
 
-</style>
+    function addMovies(MoviName){
+        const il = document.createElement('li');
+        il.appendChild(document.createTextNode(MoviName));
+        document.querySelector('.movies').appendChild(il);
+    }
+    addMovies('KGF');
+
+    // Edit 
+
+    const secondMovies = document.querySelector('li:nth-child(2)')
+    // secondMovies.innerHTML = 'Bahubali 2';
+    const newli = document.createElement('li');
+    newli.textContent = 'Bahubali 2';
+    secondMovies.replaceWith(newli);
+
+    // Edit
+    const firstMovies = document.querySelector('li:first-child');
+    firstMovies.outerHTML = '<li>RRR</li>';
+
+    // Remove
+    const thirdMovies = document.querySelector('li:third-child');
+    thirdMovies.remove();
+
+    // Delete
+    const fourthMovies = document.querySelector('li:fourth-child(4)');
+    if (fourthMovies) {
+        fourthMovies.remove();
+    } else {
+        console.log('No fourth movie to remove');
+    }
+</script>
 </html>
